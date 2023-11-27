@@ -11,6 +11,7 @@ class PersonasScreen extends StatefulWidget {
 class _PersonasScreenState extends State<PersonasScreen> {
   TextEditingController controller = TextEditingController();
   int x = 0;
+  var personaList = PersonasList(x: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +40,16 @@ class _PersonasScreenState extends State<PersonasScreen> {
                       onPressed: (){
                         setState(() {
                           x = int.parse(controller.text);
+                          print(x);
+                          personaList = PersonasList(x: x);
                         });
                       },
                       icon: Icon(Icons.search)
                   ),
                 ],
               ),
-              PersonasList(x: x)
+              SizedBox(height: 16),
+              personaList
             ]
         )
       )

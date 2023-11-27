@@ -5,7 +5,9 @@ import 'package:http/http.dart' as http;
 class HttpHelper{
   final String urlBase = 'https://randomuser.me/api';
 
-  Future<List<Persona>> getXPersonas(String x) async{
+  Future<List> getXPersonas(String x) async{
+
+    print(x);
 
     final String urlFinal = '$urlBase/?results=$x';
     http.Response response = await http.get(Uri.parse(urlFinal));
@@ -13,11 +15,11 @@ class HttpHelper{
     if (response.statusCode == 200){
       final jsonResponse = json.decode(response.body);
       final personasMap = jsonResponse['results'];
+      print(personasMap);
 
-      List<Persona> personas = personasMap.map(
+      List personas = personasMap.map(
           (i) => Persona.fromJson(i)
       ).toList();
-
       return personas;
     }
     else{
