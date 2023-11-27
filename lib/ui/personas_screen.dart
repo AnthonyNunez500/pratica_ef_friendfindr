@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pratica_ef_friendfindr/ui/personas_list.dart';
 
 class PersonasScreen extends StatefulWidget {
   const PersonasScreen({super.key});
@@ -9,6 +10,7 @@ class PersonasScreen extends StatefulWidget {
 
 class _PersonasScreenState extends State<PersonasScreen> {
   TextEditingController controller = TextEditingController();
+  int x = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +36,16 @@ class _PersonasScreenState extends State<PersonasScreen> {
                       )
                   ),
                   IconButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        setState(() {
+                          x = int.parse(controller.text);
+                        });
+                      },
                       icon: Icon(Icons.search)
                   ),
                 ],
-              )
+              ),
+              PersonasList(x: x)
             ]
         )
       )

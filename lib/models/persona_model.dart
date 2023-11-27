@@ -1,3 +1,5 @@
+//https://javiercbk.github.io/json_to_dart/
+
 class Persona {
   String? nombre;
   String? apellido;
@@ -9,7 +11,7 @@ class Persona {
 
   Persona.fromJson(Map<String, dynamic> json) {
     nombre = json['name']['first'];
-    apellido = json['apellido']['last'];
+    apellido = json['name']['last'];
     email = json['email'];
     celular = json['cell'];
     foto = json['picture']['thumbnail'];
