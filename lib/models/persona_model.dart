@@ -6,8 +6,12 @@ class Persona {
   String? email;
   String? celular;
   String? foto;
+  String? titulo;
+  String? genero;
+  String? ciudad;
+  int? favorited;
 
-  Persona({this.nombre, this.apellido, this.email, this.celular, this.foto});
+  Persona({this.nombre, this.apellido, this.email, this.celular, this.foto, this.titulo, this.genero, this.ciudad, this.favorited});
 
   Persona.fromJson(Map<String, dynamic> json) {
     nombre = json['name']['first'];
@@ -15,6 +19,11 @@ class Persona {
     email = json['email'];
     celular = json['cell'];
     foto = json['picture']['thumbnail'];
+    titulo = json['name']['title'];
+    genero = json['gender'];
+    ciudad = json['location']['city'];
+    foto = json['picture']['thumbnail'];
+    favorited = null;
   }
 
   Map<String, dynamic> toJson() {
@@ -24,6 +33,10 @@ class Persona {
     data['email'] = this.email;
     data['celular'] = this.celular;
     data['foto'] = this.foto;
+    data['titulo'] = this.titulo;
+    data['genero'] = this.genero;
+    data['ciudad'] = this.ciudad;
+    data['favorited'] = this.favorited;
     return data;
   }
 }

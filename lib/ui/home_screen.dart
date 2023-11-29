@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pratica_ef_friendfindr/ui/favoritos_screen.dart';
 import 'package:pratica_ef_friendfindr/ui/personas_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -36,7 +37,10 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context,  MaterialPageRoute(builder: (context)=>
+                      FavoritosScreen()));
+                },
                 child: Text("Favoritos")
             )
           ],

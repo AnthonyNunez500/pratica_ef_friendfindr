@@ -40,7 +40,7 @@ class _PersonasScreenState extends State<PersonasScreen> {
                       onPressed: (){
                         setState(() {
                           x = int.parse(controller.text);
-                          print(x);
+                          //print(x);
                           personaList = PersonasList(x: x);
                         });
                       },

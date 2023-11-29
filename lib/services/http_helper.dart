@@ -7,7 +7,7 @@ class HttpHelper{
 
   Future<List> getXPersonas(String x) async{
 
-    print(x);
+    //print(x);
 
     final String urlFinal = '$urlBase/?results=$x';
     http.Response response = await http.get(Uri.parse(urlFinal));
@@ -15,7 +15,7 @@ class HttpHelper{
     if (response.statusCode == 200){
       final jsonResponse = json.decode(response.body);
       final personasMap = jsonResponse['results'];
-      print(personasMap);
+      //print(personasMap);
 
       List personas = personasMap.map(
           (i) => Persona.fromJson(i)
